@@ -1,0 +1,13 @@
+GitPython
+datasets
+black
+parameterized
+accelerate
+numpy>=1.20.3
+jax
+evaluate
+faiss
+tensorflow
+timeout-decorator
+sentencepiece
+
