@@ -20,3 +20,4 @@ nltk
 sacrebleu
 sacremoses
 rouge_score
+seqeval
