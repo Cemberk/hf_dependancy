@@ -23,8 +23,14 @@ grep 'FAILED' $PYTEST_RESULTS_FILE | while read -r line; do
 
     # Check if "import pytest" is already added
     if ! grep -q "import pytest" $TEST_FILE; then
-        # Add "import pytest" at the top of the file
-        sed -i '1s/^/import pytest\n/' $TEST_FILE
+        # Check if there are any __future__ imports
+        if grep -q "from __future__ import" $TEST_FILE; then
+            # Insert 'import pytest' after the last __future__ import
+            awk '/from __future__ import/ {print; last_line=NR; next} NR==last_line+1 {print "import pytest\n"$0; next} {print}' $TEST_FILE > temp_file && mv temp_file $TEST_FILE
+        else
+            # Add 'import pytest' at the top of the file
+            sed -i '1s/^/import pytest\n/' $TEST_FILE
+        fi
     fi
 
     # Add the skip decorator with correct indentation above the failing test
