@@ -2,7 +2,7 @@
 
 TEST_DIR="tests/"
 PYTEST_RESULTS_FILE="pytest_results.log"
-DEFAULT_INDENTATION="    "
+DEFAULT_INDENTATION="\ \ \ \ "
 TEST_LIST_FILE="test_list.txt" # File containing the list of tests
 
 # Function to process failed tests
