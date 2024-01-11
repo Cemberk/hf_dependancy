@@ -27,7 +27,7 @@ output_pytest_command() {
     local start=$1
     local end=$2
     local chunk_files=$(echo "$TEST_FILES" | sed -n "${start},${end}p" | tr '\n' ' ')
-    echo "pytest $chunk_files -p no:cacheprovider -p no:faulthandler"
+    echo "RUN_SLOW=1 pytest $chunk_files -p no:cacheprovider -p no:faulthandler"
 }
 
 # Loop through each chunk and echo the pytest command
