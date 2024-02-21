@@ -11,7 +11,7 @@ TESTS_DIR="tests/"
 EXAMPLES_DIR="examples/"
 
 # Find all test files
-TEST_FILES=$(find "$TESTS_DIR" "$EXAMPLES_DIR" -name 'test_*.py')
+TEST_FILES=$(find "$TESTS_DIR" "$EXAMPLES_DIR" -name 'test_*.py' | sort)
 TOTAL_FILES=$(echo "$TEST_FILES" | wc -w)
 
 # Calculate the number of tests per chunk
